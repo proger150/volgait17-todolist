@@ -54,7 +54,7 @@
 		 + '<input type="text" id="' + model.id + '_name" value="' + model.name+ '" /></td><td>' 
 		 + model.create_date  + '</td><td>' 
 		 + '<input type="checkbox" id="' + model.id +'_done" name="' + model.id +'_done" ' + (model.done == 1 ? 'checked' : '')+ ' value="1"></td> <td>'
-		 + '<a data-confirm="Вы действительно хотите удалить эту запись?" class="btn btn-danger" href="/project/web/index.php?r=tasks%2Fdelete&amp;id=' + model.id +'">Удалить</a> '
+		 + '<a data-confirm="Вы действительно хотите удалить эту запись?" class="btn btn-danger" href="' + root_url +'/index.php?r=tasks%2Fdelete&amp;id=' + model.id +'">Удалить</a> '
 		 + '<button type="button" class="btn btn-success" onclick="App.updateRow(' + model.id +')">Сохранить</button>'
 		 +'</td></tr>'
          table.append(html);

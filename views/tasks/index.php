@@ -1,6 +1,6 @@
 <?php
 
-
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\ActiveForm;
@@ -11,6 +11,9 @@ $this->title = 'Tasks';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="task-index">
+<script>
+ var root_url = <?=Url::base();?>
+</script>
 <?
 $this->registerJs('
 $(document).ready(function()
