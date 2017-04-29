@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="task-index">
 <script>
- var root_url = <?=Url::base();?>
+ var root_url = "<?=Url::base();?>";
 </script>
 <?
 $this->registerJs('
