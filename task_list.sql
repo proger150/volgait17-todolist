@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 29 2017 г., 09:32
+-- Время создания: Апр 29 2017 г., 12:32
 -- Версия сервера: 5.7.14
 -- Версия PHP: 5.6.25
 
@@ -31,8 +31,16 @@ CREATE TABLE `task_list` (
   `name` varchar(400) CHARACTER SET latin1 DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   `done` tinyint(4) DEFAULT '1',
-  `token_id` int(20) DEFAULT NULL
+  `token_id` int(20) DEFAULT NULL,
+  `close_date` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `task_list`
+--
+
+INSERT INTO `task_list` (`id`, `name`, `create_date`, `done`, `token_id`, `close_date`) VALUES
+(143, 'sdf', '2017-04-29 12:26:00', 1, 7, '2017-04-29 12:26:00');
 
 -- --------------------------------------------------------
 
@@ -78,7 +86,7 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT для таблицы `task_list`
 --
 ALTER TABLE `task_list`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 --
 -- AUTO_INCREMENT для таблицы `tokens`
 --

@@ -30,7 +30,7 @@ class Task extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['create_date'], 'safe'],
+            [['create_date','close_date'], 'safe'],
             [['done', 'token_id'], 'integer'],
             [['name'], 'string', 'max' => 400],
         ];
@@ -51,6 +51,8 @@ class Task extends \yii\db\ActiveRecord
 			 $this->create_date = date("Y-m-d H:i");
 			 $this->token_id = $token->id;
 			 $this->done = 0;
+			 } else if($this->getOldAttribute('done') == 0 && $this->done == 1) {
+				 $this->close_date = date("Y-m-d H:i");
 			 }
 			 return true;
 		 } else {
@@ -63,7 +65,7 @@ class Task extends \yii\db\ActiveRecord
             'id' => 'Номер',
             'name' => 'Название задания',
             'create_date' => 'Дата создания',
-            'done' => 'Статус',
+            'done' => 'Выполнена',
             'token_id' => 'Token ID',
         ];
     }

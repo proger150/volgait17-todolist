@@ -33,7 +33,7 @@ class TasksController extends Controller
             ],
         ];
     }
-
+    
     /**
      * Lists all Task models.
      * @return mixed
@@ -95,9 +95,10 @@ class TasksController extends Controller
         }
     }
 	//Здесь мы проверяем наличие созданного токена. Понимаю, что нужно было создать отдельную модель и контроллер для авторизации, но не было времени
+	
 public function beforeAction($action)
 {
-  
+  Task::deleteAll('timestampdiff(MINUTE,NOW(),close_date) > 1');
     if (!parent::beforeAction($action)) {
         return false;
     }
