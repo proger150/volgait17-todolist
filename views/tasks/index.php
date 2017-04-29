@@ -79,7 +79,7 @@ $("#w0").on("beforeSubmit",function(e){
 			'buttons'=>[
 			'delete'=>function($url, $model, $key)
 			{
-				return Html::a('Удалить',$url,['class'=>'btn btn-danger','data-confirm'=>'Вы действительно хотите удалить эту запись?']);
+				return Html::button('Удалить',['class'=>'btn btn-danger','onclick'=>'App.itemRemove('.$model->id.', this)']);
 			},
 			'save'=>function($url, $model, $key)
 			{

@@ -98,7 +98,7 @@ class TasksController extends Controller
 	
 public function beforeAction($action)
 {
-  Task::deleteAll('timestampdiff(MINUTE,NOW(),close_date) > 1');
+  Task::deleteAll('timestampdiff(MINUTE,NOW(),close_date) > 60');
     if (!parent::beforeAction($action)) {
         return false;
     }
@@ -147,9 +147,10 @@ public function beforeAction($action)
      */
     public function actionDelete($id)
     {
+		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return self::$success_response;
     }
  
     /**
